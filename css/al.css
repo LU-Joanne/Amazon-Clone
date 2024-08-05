@@ -278,12 +278,16 @@ nav {
     position: absolute;
     top: 20%;
     z-index: 1;
-    text-shadow: 4px 1px white;
     font-size: 40px;
     padding: 95px 42px;
     cursor: pointer;
 }
 
+.control-prev {
+    text-shadow: 4px 1px white;
+}
+
 .control-next {
     right: 0;
+    text-shadow: -4px 1px white;
 }
