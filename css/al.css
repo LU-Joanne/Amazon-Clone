@@ -276,9 +276,9 @@ nav {
 
 .header-slider a {
     position: absolute;
-    top: 20%;
+    top: 15%;
     z-index: 1;
-    font-size: 40px;
+    font-size: 23px;
     padding: 95px 42px;
     cursor: pointer;
 }
@@ -296,6 +296,13 @@ nav {
     display: grid;
     justify-content: space-between;
     grid-template-columns: repeat(4, 1fr);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+
+.header-box {
+    margin-top: -10vw;
 }
 
 .product-card {
@@ -304,6 +311,7 @@ nav {
     padding: 10px 20px;
     display: flex;
     flex-direction: column;
+    z-index: 1;
 }
 
 .product-card h2 {
@@ -388,4 +396,20 @@ select {
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(213, 217, 217, 0.5);
     margin-bottom: 10px;
+}
+
+.product-footer {
+    background: #0C164F;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.product-footer img {
+    margin: 12px 20px;
+    width: 100px;
+}
+
+.product-footer p {
+    margin: 20px 20px;
 }
