@@ -427,8 +427,18 @@ select {
 }
 
 @media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+    }
+
     .nav-country {
         display: none;
+    }
+
+    .nav-search {
+        order: 1;
+        min-width: 300px;
+        margin: 15px 5px 5px;
     }
 
     .product-box {
@@ -440,7 +450,7 @@ select {
     }
 
     .header-slider a {
-        top: 22%;
+        top: 24%;
         padding: 2vh 4vw;
         font-size: 15px;
     }
