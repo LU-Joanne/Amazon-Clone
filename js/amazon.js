@@ -1,36 +1,3 @@
-const products = [{
-    image: './assets/product1-1.jpg',
-    name: 'HOTHANDS Hand Warmers - 40 Pair',
-    rating: {
-        stars: 5.0,
-        count: 42127
-    },
-    price: 900
-}, {
-    image: './assets/product1-8.jpg',
-    name: 'HOTHANDS Hand Warmers Value Pack',
-    rating: {
-        stars: 4.5,
-        count: 11024
-    },
-    price: 424
-}, {
-    image: './assets/product1-3.jpg',
-    name: 'OutdoorMaster OTG Ski Goggles - Over Glasses Ski/Snowboard Goggles for Men, Women & Youth - 100% UV Protection',
-    rating: {
-        stars: 4.0,
-        count: 22204
-    },
-    price: 990
-}, {
-    image: './assets/product1-4.jpg',
-    name: 'Prepared Hero Extra Large Emergency Fire Blanket - 1 Pack - Extra Large Fire Suppression Blanket for Kitchen, 47” x 71” XL Fire Blanket for Home, Fiberglass Fire Blanket, XL',
-    rating: {
-        stars: 4.5,
-        count: 113
-    },
-    price: 1750
-}];
 let productsHTML = '';
 products.forEach((product) => {
     productsHTML += `
@@ -39,7 +6,7 @@ products.forEach((product) => {
         <h2>${product.name}
         </h2>
         <div class="product-rating">
-            <img src="./assets/rating-${product.rating.stars * 10}.png" class="rating-img" alt="">
+            <img src="./assets/rating/rating-${product.rating.stars * 10}.png" class="rating-img" alt="">
             <a href="#" class="product-reviews">${product.rating.count}</a>
         </div>
         <p>$${product.price}</p>
@@ -58,9 +25,38 @@ products.forEach((product) => {
             <img src="./assets/checkmark.png" alt="">
             <p>Added</p>
         </div>
-        <button class="btn">Add to Cart</button>
+        <button class="btn js-add-to-cart" data-product-id="${product.id}">Add to Cart</button>
         <button class="btn product-buy">Buy Now</button>
     </div>`;
 });
 
 document.querySelector('.js-product-box').innerHTML = productsHTML;
+document.querySelectorAll('.js-add-to-cart').forEach((button) => {
+    button.addEventListener('click', () => {
+        const productId = button.dataset.productId;
+
+        let matchingItem;
+
+        cart.forEach((item) => {
+            if (productId === item.productId) {
+                matchingItem = item;
+            }
+        });
+
+        if (matchingItem) {
+            matchingItem.quantity += 1;
+        } else {
+            cart.push({
+                productId: productId,
+                quantity: 1
+            });
+        }
+
+        let cartQuantity = 0;
+        cart.forEach((item) => {
+            cartQuantity += item.quantity;
+        });
+
+        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+    });
+});

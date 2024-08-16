@@ -435,12 +435,6 @@ select {
         display: none;
     }
 
-    .nav-search {
-        order: 1;
-        min-width: 300px;
-        margin: 15px 5px 5px;
-    }
-
     .product-box {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -467,5 +461,13 @@ select {
 
     .product-footer p {
         margin: 12px;
+    }
+}
+
+@media(max-width: 609px) {
+    .nav-search {
+        order: 1;
+        min-width: 300px;
+        margin: 15px 5px 5px;
     }
 }
