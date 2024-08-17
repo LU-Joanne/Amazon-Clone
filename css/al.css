@@ -374,17 +374,20 @@ select {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    visibility: hidden;
+}
+
+.js-product-add {
+    visibility: visible;
 }
 
 .product-add img {
     height: 20px;
     margin-right: 5px;
-    display: none;
 }
 
 .product-add p {
     margin-bottom: 0;
-    display: none;
 }
 
 .btn {

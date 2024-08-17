@@ -58,5 +58,15 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
         });
 
         document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+        const productAdd = document.querySelectorAll('.product-add');
+        for (let i = 0; i < products.length; i++) {
+            if (productId === products[i].id) {
+                productAdd[i].style.visibility = 'visible';
+                setTimeout(() => {
+                    productAdd[i].style.visibility = 'hidden';
+                }, 800);
+            }
+        };
+
     });
 });
