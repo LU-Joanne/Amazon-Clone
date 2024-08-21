@@ -374,11 +374,11 @@ select {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
-    visibility: hidden;
+    opacity: 0;
 }
 
-.js-product-add {
-    visibility: visible;
+.added-to-cart-visible {
+    opacity: 1;
 }
 
 .product-add img {

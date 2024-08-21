@@ -1,3 +1,4 @@
+import { cart } from './cart.js';
 let productsHTML = '';
 products.forEach((product) => {
     productsHTML += `
@@ -21,7 +22,7 @@ products.forEach((product) => {
             <option value="8">8</option>
             <option value="9">9</option>
         </select>
-        <div class="product-add">
+        <div class="product-add js-added-to-cart-${product.id}">
             <img src="./assets/checkmark.png" alt="">
             <p>Added</p>
         </div>
@@ -63,14 +64,15 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
         });
 
         document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-        const productAdd = document.querySelectorAll('.product-add');
-        for (let i = 0; i < products.length; i++) {
-            if (productId === products[i].id) {
-                productAdd[i].style.visibility = 'visible';
-                setTimeout(() => {
-                    productAdd[i].style.visibility = 'hidden';
-                }, 800);
-            }
-        };
+
+        const addedMessage = document.querySelector(
+            `.js-added-to-cart-${productId}`
+        );
+
+        addedMessage.classList.add('added-to-cart-visible');
+
+        setTimeout(() => {
+            addedMessage.classList.remove('added-to-cart-visible');
+        }, 2000);
     });
 });
