@@ -10,7 +10,7 @@ products.forEach((product) => {
             <a href="#" class="product-reviews">${product.rating.count}</a>
         </div>
         <p>$${product.price}</p>
-        <select class="product-quantity">
+        <select class="product-quantity js-product-quantity-${product.id}">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -26,7 +26,7 @@ products.forEach((product) => {
             <p>Added</p>
         </div>
         <button class="btn js-add-to-cart" data-product-id="${product.id}">Add to Cart</button>
-        <button class="btn product-buy">Buy Now</button>
+        <a href="./cart.html"><button class="btn product-buy">Buy Now</button></a>
     </div>`;
 });
 
@@ -43,14 +43,19 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
             }
         });
 
+        const quantitySelector = document.querySelector(
+            `.js-product-quantity-${productId}`
+        );
+        const quantity = Number(quantitySelector.value);
+
         if (matchingItem) {
-            matchingItem.quantity += 1;
+            matchingItem.quantity += quantity;
         } else {
             cart.push({
                 productId: productId,
-                quantity: 1
+                quantity: quantity
             });
-        }
+        };
 
         let cartQuantity = 0;
         cart.forEach((item) => {
@@ -67,6 +72,5 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
                 }, 800);
             }
         };
-
     });
 });

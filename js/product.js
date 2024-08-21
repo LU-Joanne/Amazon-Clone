@@ -6,8 +6,7 @@ const products = [{
         stars: 5.0,
         count: 42127
     },
-    price: 900,
-    add: false
+    price: 900
 }, {
     id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
     image: './assets/product1-8.jpg',
@@ -16,8 +15,7 @@ const products = [{
         stars: 4.5,
         count: 11024
     },
-    price: 424,
-    add: false
+    price: 424
 }, {
     id: "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
     image: './assets/product1-3.jpg',
@@ -26,8 +24,7 @@ const products = [{
         stars: 4.0,
         count: 22204
     },
-    price: 990,
-    add: false
+    price: 990
 }, {
     id: "54e0eccd-8f36-462b-b68a-8182611d9add",
     image: './assets/product1-4.jpg',
@@ -36,6 +33,5 @@ const products = [{
         stars: 4.5,
         count: 113
     },
-    price: 1750,
-    add: false
+    price: 1750
 }];
