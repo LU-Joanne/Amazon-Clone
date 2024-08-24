@@ -14,12 +14,6 @@
     padding: 20px;
 }
 
-.cart-left h1 {
-    font-size: 28px;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
-
 hr {
     border: none;
     height: 1px;
@@ -31,6 +25,7 @@ hr {
     align-items: start;
     gap: 10px;
     padding: 24px 0 12px 12px;
+    justify-content: space-between;
 }
 
 .product-cart-list img {
@@ -69,6 +64,7 @@ hr {
     gap: 8px;
     font-size: 12px;
     color: #007185;
+    align-items: center;
 }
 
 .cart-list-action::before {
@@ -96,6 +92,11 @@ hr {
     height: 20px;
     width: 1px;
     background: #cfcfcf;
+}
+
+.cartAmount-plus-icon {
+    font-size: 13px;
+    margin-bottom: 4px;
 }
 
 .action-btn {
