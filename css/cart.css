@@ -14,11 +14,11 @@
     padding: 20px;
 }
 
-hr {
+/* hr {
     border: none;
     height: 1px;
     background: #dadada;
-}
+} */
 
 .product-cart-list {
     display: flex;
@@ -26,6 +26,7 @@ hr {
     gap: 10px;
     padding: 24px 0 12px 12px;
     justify-content: space-between;
+    border-bottom: solid 1px #00000033;
 }
 
 .product-cart-list img {
@@ -94,6 +95,10 @@ hr {
     background: #cfcfcf;
 }
 
+.product-cart-quantity {
+    width: 8px;
+}
+
 .cartAmount-plus-icon {
     font-size: 13px;
     margin-bottom: 4px;
@@ -101,6 +106,7 @@ hr {
 
 .action-btn {
     padding: 8px 5px;
+    cursor: pointer;
 }
 
 .action-btn-save {
