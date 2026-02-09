@@ -1,11 +1,8 @@
 export function getCart() {
-  try {
-    return JSON.parse(localStorage.getItem('cart')) || [];
-  } catch {
-    return [];
-  }
+    const cart = localStorage.getItem("cart");
+    return cart ? JSON.parse(cart) : [];
 }
 
 export function setCart(cart) {
-  return localStorage.setItem('cart', JSON.stringify(cart));
+    return localStorage.setItem('cart', JSON.stringify(cart));
 }

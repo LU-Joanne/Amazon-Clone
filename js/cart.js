@@ -5,10 +5,20 @@ import { PRODUCTS } from './product.js';
 let cart = getCart();
 
 const cartList = document.querySelector('.product-cart-container');
-if(cart.length === 0){
-    cartList.innerHTML = "<p>購物車是空的</p>";
-} else {
+renderCart();
+function renderCart() {
+    cartList.innerHTML = '';
+
+    if(cart.length === 0){
+        cartList.innerHTML = "<p>購物車是空的</p>";
+        updateTotalPrice();
+        return;
+    }
+
     cart.forEach(item => {
+        const product = PRODUCTS[item.id];
+        if(!product) return; // 防呆
+
         cartList.innerHTML += `
                 <div class="product-cart-list" data-id="${item.id}">
                 <img class="product-cart-image" src="${item.image}" alt="">
@@ -57,7 +67,10 @@ if(cart.length === 0){
             </div>
         `;
     });
-};
+    updateTotalPrice();
+    updateTotalQuantity();
+}
+
 updateTotalPrice();
 updateTotalQuantity();
 cartList.addEventListener('click', e => {
@@ -65,12 +78,10 @@ cartList.addEventListener('click', e => {
     if (!cartItem) return;
 
     const id = cartItem.dataset.id;
-    const index = cart.findIndex(p => p.id === id);
-    if (index === -1) return;
+    const item = cart.find(p => p.id === id);
+    if (!item) return;
 
-    const product = cart[index];
     const quantityEl = cartItem.querySelector('.cart-product-quantity');
-
     let changed = false;
 
     if(e.target.closest('.product-cart-image') || e.target.closest('.product-cart-title')){
@@ -79,13 +90,13 @@ cartList.addEventListener('click', e => {
 
     //加數量
     if(e.target.closest('.cart-plus-icon')){
-        product.quantity++;
+        item.quantity++;
         changed = true;
     };
     //減數量
     if (e.target.closest('.cart-minus-icon')) {
-        if(product.quantity > 1){
-            product.quantity--;
+        if(item.quantity > 1){
+            item.quantity--;
             changed = true;
         } else {
             removeProduct(id, cartItem);
@@ -100,14 +111,14 @@ cartList.addEventListener('click', e => {
 
     if (!changed) return;
 
-    quantityEl.textContent = product.quantity;
+    quantityEl.textContent = item.quantity;
     setCart(cart);
     updateTotalPrice();
     updateTotalQuantity();
 });
 
 function getFinalPrice(item) {
-    const product = cart?.find(p => p.id === item?.id);
+    const product = PRODUCTS[item.id];
     if(!product?.price) return 0;
     const { listPrice = 0, discount = 0 } = product.price;
     return Math.floor(listPrice * (1 - discount/100) *100) / 100;
