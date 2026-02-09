@@ -498,11 +498,12 @@ a{
     margin-bottom: 10px;
     height: 34px;
     font-weight: 400;
-    overflow: hidden;
     text-overflow: ellipsis;
+    line-clamp: 2;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
     line-height: 17px;
 }
 
@@ -511,13 +512,6 @@ a{
     max-height: 100%;
     margin-bottom: 20px;
 }
-
-/* 
-.product-rating {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-} */
 
 .rating-img {
     height: 22px;
