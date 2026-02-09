@@ -106,7 +106,8 @@ cartList.addEventListener('click', e => {
 });
 
 function getFinalPrice(item) {
-  return Math.floor(item.price.listPrice * (1 - item.price.discount/100) *100) / 100;
+    if(!item) return 0;
+    return Math.floor(item.price.listPrice * (1 - item.price.discount/100) *100) / 100;
 };
 function updateTotalPrice(){
     const total = cart.reduce((sum, item) => {
