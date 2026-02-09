@@ -26,7 +26,7 @@ if(cart.length === 0){
                             </p>
                             <a href="#">FREE Returns</a>
                             <div class="product-cart-gift">
-                                <input type="checkbox"><label for="gift" class="a-size-small">This is a gift <a
+                                <input type="checkbox" id="gift-${item.id}" name="gift"><label for="gift-${item.id}" class="a-size-small">This is a gift <a
                                         href="#">Learn
                                         more</a></label>
                             </div>
