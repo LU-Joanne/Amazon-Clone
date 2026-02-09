@@ -5,13 +5,14 @@ import { PRODUCTS } from './product.js';
 let cart = getCart();
 
 const cartList = document.querySelector('.product-cart-container');
-renderCart();
+
 function renderCart() {
     cartList.innerHTML = '';
 
     if(cart.length === 0){
         cartList.innerHTML = "<p>購物車是空的</p>";
         updateTotalPrice();
+        updateTotalQuantity();
         return;
     }
 
@@ -70,9 +71,8 @@ function renderCart() {
     updateTotalPrice();
     updateTotalQuantity();
 }
+renderCart();
 
-updateTotalPrice();
-updateTotalQuantity();
 cartList.addEventListener('click', e => {
     const cartItem = e.target.closest('.product-cart-list');
     if (!cartItem) return;
