@@ -28,3 +28,10 @@ nextBtn.addEventListener('click', () => {
     }
     changeSlide();
 })
+
+document.querySelectorAll('.product-image').forEach(item => {
+    item.addEventListener('click', () => {
+        const id = item.dataset.id;
+        location.href = `product.html?id=${id}`;
+    })
+});
