@@ -1,5 +1,6 @@
 import { getCart, setCart } from './cartStorage.js';
 import { updateTotalQuantity } from './cartBadge.js';
+import { PRODUCTS } from './product.js';
 
 let cart = getCart();
 
@@ -106,8 +107,10 @@ cartList.addEventListener('click', e => {
 });
 
 function getFinalPrice(item) {
-    if(!item) return 0;
-    return Math.floor(item.price.listPrice * (1 - item.price.discount/100) *100) / 100;
+    const product = cart?.find(p => p.id === item?.id);
+    if(!product?.price) return 0;
+    const { listPrice = 0, discount = 0 } = product.price;
+    return Math.floor(listPrice * (1 - discount/100) *100) / 100;
 };
 function updateTotalPrice(){
     const total = cart.reduce((sum, item) => {
