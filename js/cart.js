@@ -80,7 +80,7 @@ cartList.addEventListener('click', e => {
     const id = cartItem.dataset.id;
     const item = cart.find(p => p.id === id);
     if (!item) return;
-
+item.quantity = Number(item.quantity) || 0;
     const quantityEl = cartItem.querySelector('.cart-product-quantity');
     let changed = false;
 
