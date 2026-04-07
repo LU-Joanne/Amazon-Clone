@@ -3,7 +3,7 @@ import { getCart } from "./cartStorage.js";
 export function updateTotalQuantity(){
     const cart = getCart();
     const totalQuantity = cart.reduce((sum, item) => {
-        return sum + item.quantity
+        return sum + (Number(item.quantity) || 0)
     }, 0);
     const badge = document.querySelectorAll('.js-cart-quantity');
     if(badge){
