@@ -140,8 +140,8 @@ function removeProduct(productId, cartItem){
     updateTotalQuantity();
 }
 
-// document.getElementById("clearCart").addEventListener("click", () => {
-//   localStorage.removeItem("cart");
-//   console.log("購物車已清空");
-//   location.reload(); // 重新渲染畫面
-// });
+document.getElementById("clearCart").addEventListener("click", () => {
+  localStorage.removeItem("cart");
+  console.log("購物車已清空");
+  location.reload(); // 重新渲染畫面
+});
