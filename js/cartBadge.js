@@ -2,7 +2,6 @@ import { getCart } from "./cartStorage.js";
 
 export function updateTotalQuantity(){
     const cart = getCart();
-   cart.forEach(item => console.log(item.quantity, typeof item.quantity));
     const totalQuantity = cart.reduce((sum, item) => {
         return sum + (Number(item.quantity) || 0)
     }, 0);

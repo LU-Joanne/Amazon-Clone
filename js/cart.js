@@ -108,6 +108,11 @@ item.quantity = Number(item.quantity) || 0;
        removeProduct(id, cartItem);
        return;
     }
+    if (e.target.closest("#clearCart")) {
+    localStorage.removeItem("cart");
+    console.log("購物車已清空");
+    location.reload();
+  }
 
     if (!changed) return;
 
@@ -125,7 +130,7 @@ function getFinalPrice(item) {
 };
 function updateTotalPrice(){
     const total = cart.reduce((sum, item) => {
-        return sum + getFinalPrice(item) * item.quantity;
+        return sum + getFinalPrice(item) * (Number(item.quantity) || 0);
     }, 0);
     document.querySelectorAll('.cart-total-amount').forEach(e => {
         e.textContent = total.toFixed(2);
@@ -140,8 +145,8 @@ function removeProduct(productId, cartItem){
     updateTotalQuantity();
 }
 
-document.getElementById("clearCart").addEventListener("click", () => {
-  localStorage.removeItem("cart");
-  console.log("購物車已清空");
-  location.reload(); // 重新渲染畫面
-});
+// document.getElementById("clearCart").addEventListener("click", () => {
+//   localStorage.removeItem("cart");
+//   console.log("購物車已清空");
+//   location.reload(); // 重新渲染畫面
+// });
