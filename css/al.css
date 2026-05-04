@@ -612,7 +612,7 @@ select {
     }
 
     .header-slider a {
-        top: 24%;
+        top: 18%;
         padding: 2vh 4vw;
         font-size: 15px;
     }
@@ -632,13 +632,15 @@ select {
     }
 }
 
-@media(max-width: 609px) {
+@media(max-width: 540px) {
     .nav-search {
         order: 1;
         min-width: 300px;
         margin: 15px 5px 5px;
     }
+                .header-slider a {
+                    top: 15%;}
         .box-col {
-            max-width: 100%;
+            min-width: 160px;
         }
 }
