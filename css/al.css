@@ -586,7 +586,9 @@ select {
     .product-box {
         grid-template-columns: repeat(3, 1fr);
     }
-
+.box-col {
+    max-width: 48%;
+}
     .product-card {
         margin-bottom: 20px;
     }
@@ -636,4 +638,7 @@ select {
         min-width: 300px;
         margin: 15px 5px 5px;
     }
+        .box-col {
+            max-width: 100%;
+        }
 }
